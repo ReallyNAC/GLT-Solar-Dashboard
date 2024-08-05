@@ -11,10 +11,10 @@ function setupMQTTClient() {
     username: config.mqttUsername,
     password: config.mqttPassword,
     reconnectPeriod: 5000,
-    connectTimeout: 30000,
+    connectTimeout: 60000, // Increased to 60 seconds
     rejectUnauthorized: false,
-    debug: true, // Enable debug logs
-    keepalive: 60, // Increase keepalive interval
+    debug: true,
+    keepalive: 60,
   });
 
   client.on('connect', () => {

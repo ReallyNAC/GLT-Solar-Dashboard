@@ -23,16 +23,21 @@ function calculateETA(currentChargeKWh, powerW, isCharging) {
 
 const client = setupMQTTClient();
 
-const topics = ['solar_assistant/#'];
-
 client.on('connect', () => {
   console.log('Connected to MQTT broker');
+  console.log(
+    'MQTT client state:',
+    client.connected ? 'connected' : 'disconnected'
+  );
   client.subscribe(topics, (err) => {
-    if (!err) console.log('Subscribed to topics');
-    else console.error(`Error subscribing to topics: ${err}`);
+    if (!err) {
+      console.log('Subscribed to topics:', topics);
+      console.log('Current subscriptions:', client.subscriptions);
+    } else console.error(`Error subscribing to topics: ${err}`);
   });
 });
 
+const topics = ['solar_assistant/#'];
 const mapTopicToKey = (topic) => {
   const mappings = {
     'solar_assistant/battery_1/current/state': 'batteryCurrent',
@@ -67,6 +72,8 @@ const mapTopicToKey = (topic) => {
 };
 
 client.on('message', (topic, message) => {
+  console.log('Received message on topic:', topic);
+  console.log('Message content:', message.toString());
   if (topic.includes('homeassistant')) return;
 
   const key = mapTopicToKey(topic);
@@ -121,9 +128,22 @@ app.get('/status', (req, res) => {
   });
 });
 
+app.get('/health', (req, res) => {
+  res.json({
+    status: 'OK',
+    mqtt: client.connected ? 'connected' : 'disconnected',
+    subscriptions: client.subscriptions,
+  });
+});
+
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
+  console.log(
+    'MQTT client state:',
+    client.connected ? 'connected' : 'disconnected'
+  );
+  console.log('Current subscriptions:', client.subscriptions);
 });
 
 // Error handling for uncaught exceptions
