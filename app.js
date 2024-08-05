@@ -114,6 +114,19 @@ io.on('connection', (socket) => {
   socket.emit('solarData', accumulatedData);
 });
 
+app.get('/status', (req, res) => {
+  res.json({
+    server: 'running',
+    mqttStatus: client.connected ? 'connected' : 'disconnected',
+    mqttConfig: {
+      protocol: config.mqttUrl.protocol,
+      host: config.mqttUrl.host,
+      port: config.mqttUrl.port,
+      topic: config.mqttTopic,
+    },
+  });
+});
+
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
