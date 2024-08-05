@@ -1,8 +1,8 @@
 const express = require('express');
 const http = require('http');
-const mqtt = require('mqtt');
 const socketIo = require('socket.io');
 const config = require('./config');
+const setupMQTTClient = require('./mqttconfig');
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
@@ -21,13 +21,7 @@ function calculateETA(currentChargeKWh, powerW, isCharging) {
   return (etaHours * 60).toFixed(0);
 }
 
-const client = mqtt.connect({
-  protocol: config.mqttUrl.protocol,
-  host: config.mqttUrl.host,
-  port: config.mqttUrl.port,
-  username: config.mqttUsername,
-  password: config.mqttPassword,
-});
+const client = setupMQTTClient();
 
 const topics = ['solar_assistant/#'];
 
@@ -130,4 +124,18 @@ app.get('/status', (req, res) => {
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
+});
+
+// Error handling for uncaught exceptions
+process.on('uncaughtException', (error) => {
+  console.error('Uncaught Exception:', error);
+  // Optionally, you can choose to exit the process here
+  // process.exit(1);
+});
+
+// Error handling for unhandled promise rejections
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+  // Optionally, you can choose to exit the process here
+  // process.exit(1);
 });

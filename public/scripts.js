@@ -85,4 +85,5 @@ function updateDashboard(data) {
 
 socket.on('solarData', (data) => {
   updateDashboard(data);
+  console.log('Received solar data:', data);
 });

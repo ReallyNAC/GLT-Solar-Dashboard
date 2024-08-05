@@ -26,6 +26,7 @@ function setupMQTTClient() {
   client.on('error', (error) => {
     console.error('MQTT client error:', error.message);
     console.error('Error stack:', error.stack);
+    console.error('Full error object:', JSON.stringify(error, null, 2));
   });
 
   client.on('close', () => {
