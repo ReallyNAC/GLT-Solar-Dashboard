@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="top-nav">
+      <h1 id="solar-dashboard" class="dashboard-title">Solar Dashboard</h1>
+    </nav>
+
+    <main class="dashboard-content" role="main">
+      <div class="card-grid">
+        <div class="dashboard-card battery-card">
+          <h2 id="battery" class="card-title">Battery</h2>
+          <div class="card-info">
+            <span class="card-info-title">State of Charge:</span>
+            <span class="card-info-data" id="totalBatterySOC"></span>
+          </div>
+          <div class="card-info">
+            <span class="card-info-title">Power:</span>
+            <span class="card-info-data" id="totalBatteryPower"></span>
+          </div>
+          <div class="card-info">
+            <span class="card-info-title">Charge ETA:</span>
+            <span class="card-info-data" id="chargeETA"></span>
+          </div>
+          <div class="card-info">
+            <span class="card-info-title">Current:</span>
+            <span class="card-info-data" id="batteryCurrent"></span>
+          </div>
+          <div class="card-info">
+            <span class="card-info-title">Voltage:</span>
+            <span class="card-info-data" id="batteryVoltage"></span>
+          </div>
+        </div>
+
+        <div class="dashboard-card load-card">
+          <h2 id="load" class="card-title">Load</h2>
+          <div class="card-info">
+            <span class="card-info-title">Percentage:</span>
+            <span class="card-info-data" id="loadPercentage"></span>
+          </div>
+          <div class="card-info">
+            <span class="card-info-title">Power:</span>
+            <span class="card-info-data" id="loadPower"></span>
+          </div>
+          <div class="card-info">
+            <span class="card-info-title">Discharge ETA:</span>
+            <span class="card-info-data" id="dischargeETA"></span>
+          </div>
+          <div class="card-info">
+            <span class="card-info-title">Apparent Power:</span>
+            <span class="card-info-data" id="loadApparentPower"></span>
+          </div>
+        </div>
+
+        <div class="dashboard-card solar-card">
+          <h2 id="solar-pv" class="card-title">Solar PV</h2>
+          <div class="card-info">
+            <span class="card-info-title">Power:</span>
+            <span class="card-info-data" id="solarPower"></span>
+          </div>
+          <div class="card-info">
+            <span class="card-info-title">Current:</span>
+            <span class="card-info-data" id="solarCurrent"></span>
+          </div>
+          <div class="card-info">
+            <span class="card-info-title">Voltage:</span>
+            <span class="card-info-data" id="solarVoltage"></span>
+          </div>
+          <div class="card-info">
+            <span class="card-info-title">Inverter Temp:</span>
+            <span class="card-info-data" id="inverterTemperature"></span>
+          </div>
+        </div>
+
+        <div class="dashboard-card grid-card">
+          <h2 id="grid" class="card-title">Grid</h2>
+          <div class="card-info">
+            <span class="card-info-title">Power:</span>
+            <span class="card-info-data" id="inverterGridPower"></span>
+          </div>
+          <div class="card-info">
+            <span class="card-info-title">Voltage:</span>
+            <span class="card-info-data" id="inverterGridVoltage"></span>
+          </div>
+          <div class="card-info">
+            <span class="card-info-title">Bus Voltage:</span>
+            <span class="card-info-data" id="busVoltage"></span>
+          </div>
+          <div class="card-info">
+            <span class="card-info-title">Frequency:</span>
+            <span class="card-info-data" id="inverterGridFrequency"></span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>

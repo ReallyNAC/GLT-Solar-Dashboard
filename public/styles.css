@@ -1,0 +1,96 @@
+/* Global styles */
+body {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-size: 20px;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Top navigation bar styles */
+.top-nav {
+  background-color: #2a2a2a;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  height: 60px; /* Fixed height for navbar */
+  box-sizing: border-box;
+}
+
+.dashboard-title {
+  color: #c77a14;
+  font-size: 30px;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* Main dashboard content styles */
+.dashboard-content {
+  position: fixed;
+  top: 60px; /* Start below navbar */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+/* Card grid layout */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  height: 100%;
+  width: 100%;
+}
+
+/* Individual card styles */
+.dashboard-card {
+  background-color: #2a2a2a;
+  padding: 1rem;
+  text-align: center;
+  overflow: auto; /* Allow scrolling within cards if content overflows */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  color: #c77a14;
+  font-size: 28px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.card-info {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-info-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.card-info-data {
+  font-size: 18px;
+}
+
+/* Specific card color accents */
+.battery-card {
+  border: 4px solid #4caf50;
+}
+.load-card {
+  border: 4px solid #2196f3;
+}
+.solar-card {
+  border: 4px solid #ffc107;
+}
+.grid-card {
+  border: 4px solid #9c27b0;
+}
