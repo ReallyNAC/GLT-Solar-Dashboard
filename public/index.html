@@ -7,93 +7,151 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <nav class="top-nav">
-      <h1 id="solar-dashboard" class="dashboard-title">Solar Dashboard</h1>
-    </nav>
-
-    <main class="dashboard-content" role="main">
+    <div class="top-nav"></div>
+    <div class="dashboard-content" role="main">
+      <h1 class="dashboard-title">Solar Dashboard</h1>
       <div class="card-grid">
+        <div class="dashboard-card solar-card">
+          <h2 class="card-title" tabindex="0">Solar PV</h2>
+          <div class="card-content">
+            <div class="card-info">
+              <span class="card-info-data" id="solarPower"></span>
+              <span class="card-info-title">Power:</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="totalSolar"></span>
+              <span class="card-info-title">Solar Charge:</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="solarCurrent"></span>
+              <span class="card-info-title">Current:</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="solarVoltage"></span>
+              <span class="card-info-title">Voltage:</span>
+            </div>
+          </div>
+        </div>
+
         <div class="dashboard-card battery-card">
-          <h2 id="battery" class="card-title">Battery</h2>
-          <div class="card-info">
-            <span class="card-info-title">State of Charge:</span>
-            <span class="card-info-data" id="totalBatterySOC"></span>
-          </div>
-          <div class="card-info">
-            <span class="card-info-title">Power:</span>
-            <span class="card-info-data" id="totalBatteryPower"></span>
-          </div>
-          <div class="card-info">
-            <span class="card-info-title">Charge ETA:</span>
-            <span class="card-info-data" id="chargeETA"></span>
-          </div>
-          <div class="card-info">
-            <span class="card-info-title">Current:</span>
-            <span class="card-info-data" id="batteryCurrent"></span>
-          </div>
-          <div class="card-info">
-            <span class="card-info-title">Voltage:</span>
-            <span class="card-info-data" id="batteryVoltage"></span>
+          <h2 class="card-title" tabindex="0">Battery</h2>
+          <div class="card-content">
+            <div class="card-info">
+              <span class="card-info-data" id="totalBatteryPower"></span>
+              <span class="card-info-title">Power</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="totalBatterySOC"></span>
+              <span class="card-info-title">Total Battery</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="chargeETA"></span>
+              <span class="card-info-title">Charge ETA</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="batteryCurrent"></span>
+              <span class="card-info-title">Current</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="batteryVoltage"></span>
+              <span class="card-info-title">Voltage</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="batteryTemperature"></span>
+              <span class="card-info-title">Temperature</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="batteryAbsorptionChargeVoltage"></span>
+              <span class="card-info-title">Absorption Voltage</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="batteryFloatChargeVoltage"></span>
+              <span class="card-info-title">Float Voltage</span>
+            </div>
           </div>
         </div>
 
         <div class="dashboard-card load-card">
-          <h2 id="load" class="card-title">Load</h2>
-          <div class="card-info">
-            <span class="card-info-title">Percentage:</span>
-            <span class="card-info-data" id="loadPercentage"></span>
-          </div>
-          <div class="card-info">
-            <span class="card-info-title">Power:</span>
-            <span class="card-info-data" id="loadPower"></span>
-          </div>
-          <div class="card-info">
-            <span class="card-info-title">Discharge ETA:</span>
-            <span class="card-info-data" id="dischargeETA"></span>
-          </div>
-          <div class="card-info">
-            <span class="card-info-title">Apparent Power:</span>
-            <span class="card-info-data" id="loadApparentPower"></span>
-          </div>
-        </div>
-
-        <div class="dashboard-card solar-card">
-          <h2 id="solar-pv" class="card-title">Solar PV</h2>
-          <div class="card-info">
-            <span class="card-info-title">Power:</span>
-            <span class="card-info-data" id="solarPower"></span>
-          </div>
-          <div class="card-info">
-            <span class="card-info-title">Current:</span>
-            <span class="card-info-data" id="solarCurrent"></span>
-          </div>
-          <div class="card-info">
-            <span class="card-info-title">Voltage:</span>
-            <span class="card-info-data" id="solarVoltage"></span>
-          </div>
-          <div class="card-info">
-            <span class="card-info-title">Inverter Temp:</span>
-            <span class="card-info-data" id="inverterTemperature"></span>
+          <h2 class="card-title" tabindex="0">Load</h2>
+          <div class="card-content">
+            <div class="card-info">
+              <span class="card-info-data" id="loadPower"></span>
+              <span class="card-info-title">Power:</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="loadPercentage"></span>
+              <span class="card-info-title">Total Load:</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="dischargeETA"></span>
+              <span class="card-info-title">Discharge ETA:</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="loadApparentPower"></span>
+              <span class="card-info-title">Apparent Power:</span>
+            </div>
           </div>
         </div>
-
+                
+        <div class="dashboard-card inverter-card">
+          <h2 class="card-title" tabindex="0">Inverter</h2>
+          <div class="card-content">
+            <div class="card-info">
+              <span class="card-info-data" id="maxChargeCurrent"></span>
+              <span class="card-info-title">Max Charge Current:</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="inverterTemperature"></span>
+              <span class="card-info-title">Temperature:</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="maxGridChargeCurrent"></span>
+              <span class="card-info-title">Max Grid Charge Current:</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="outputSourcePriority"></span>
+              <span class="card-info-title">Output Source Priority:</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="chargerSourcePriority"></span>
+              <span class="card-info-title">Charger Source Priority:</span>
+            </div>
+          </div>
+        </div>
+        
         <div class="dashboard-card grid-card">
-          <h2 id="grid" class="card-title">Grid</h2>
-          <div class="card-info">
-            <span class="card-info-title">Power:</span>
-            <span class="card-info-data" id="inverterGridPower"></span>
+          <h2 class="card-title" tabindex="0">Grid</h2>
+          <div class="card-content">
+            <div class="card-info">
+              <span class="card-info-data" id="inverterGridPower"></span>
+              <span class="card-info-title">Power:</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="inverterGridVoltage"></span>
+              <span class="card-info-title">Voltage:</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="busVoltage"></span>
+              <span class="card-info-title">Bus Voltage:</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="inverterGridFrequency"></span>
+              <span class="card-info-title">Frequency:</span>
+            </div>
           </div>
-          <div class="card-info">
-            <span class="card-info-title">Voltage:</span>
-            <span class="card-info-data" id="inverterGridVoltage"></span>
-          </div>
-          <div class="card-info">
-            <span class="card-info-title">Bus Voltage:</span>
-            <span class="card-info-data" id="busVoltage"></span>
-          </div>
-          <div class="card-info">
-            <span class="card-info-title">Frequency:</span>
-            <span class="card-info-data" id="inverterGridFrequency"></span>
+        </div>
+        
+        <div class="dashboard-card system-card">
+          <h2 class="card-title" tabindex="0">System</h2>
+          <div class="card-content">
+            <div class="card-info">
+              <span class="card-info-data" id="powerSaving"></span>
+              <span class="card-info-title">Power Saving:</span>
+            </div>
+            <div class="card-info">
+              <span class="card-info-data" id="shutdownBatteryVoltage"></span>
+              <span class="card-info-title">Shutdown Battery Voltage:</span>
+            </div>
           </div>
         </div>
       </div>

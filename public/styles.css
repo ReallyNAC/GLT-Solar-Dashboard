@@ -1,96 +1,127 @@
-/* Global styles */
 body {
-  background-color: #1a1a1a;
+  background-color: #2a2a2a;
   color: #e0e0e0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1;
-  font-size: 20px;
-  overflow: hidden; /* Prevent scrolling */
+  font-size: 16px;
 }
 
-/* Top navigation bar styles */
-.top-nav {
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.card-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  overflow: hidden;
+  margin: 5px;
+  max-height: 1000px;
+  transition: max-height 0.3s ease;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  text-align: center; /* Center text */
+}
+
+.card-info-data {
+  font-size: 20px;
+  word-wrap: break-word;
+  max-width: 100%;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.card-info-data:hover {
+  color: #c77a14;
+}
+
+.card-info-title {
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.card-title {
+  color: #c77a14;
+  font-size: 22px;
+  margin-top: 10px;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+}
+
+.dashboard-card {
   background-color: #2a2a2a;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  height: 60px; /* Fixed height for navbar */
+  padding: 0px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.dashboard-content {
+  padding: 10px 10px 10px 10px;
   box-sizing: border-box;
 }
 
 .dashboard-title {
   color: #c77a14;
   font-size: 30px;
-  margin-top: 12px;
+  margin-top: 10px;
   text-align: center;
 }
 
-/* Main dashboard content styles */
-.dashboard-content {
-  position: fixed;
-  top: 60px; /* Start below navbar */
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-}
-
-/* Card grid layout */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  height: 100%;
-  width: 100%;
-}
-
-/* Individual card styles */
-.dashboard-card {
+.top-nav {
   background-color: #2a2a2a;
-  padding: 1rem;
-  text-align: center;
-  overflow: auto; /* Allow scrolling within cards if content overflows */
-  display: flex;
-  flex-direction: column;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  height: 0px;
+  box-sizing: border-box;
 }
 
-.card-title {
-  color: #c77a14;
-  font-size: 28px;
-  margin-top: 0px;
-  margin-bottom: 10px;
-}
-
-.card-info {
-  margin-top: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.card-info-title {
-  font-weight: bold;
-  margin-bottom: 5px;
-  font-size: 20px;
-}
-
-.card-info-data {
-  font-size: 18px;
-}
-
-/* Specific card color accents */
 .battery-card {
-  border: 4px solid #4caf50;
+  border: 3px solid #4caf50;
 }
 .load-card {
-  border: 4px solid #2196f3;
+  border: 3px solid #2196f3;
 }
 .solar-card {
-  border: 4px solid #ffc107;
+  border: 3px solid #ffc107;
 }
 .grid-card {
-  border: 4px solid #9c27b0;
+  border: 3px solid #bd0f0f;
+}
+.inverter-card {
+  border: 3px solid #ff5722;
+}
+.system-card {
+  border: 3px solid #3f51b5;
+}
+
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card:not(.expanded) .card-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-height: 70px;
+  }
+
+  .dashboard-card.expanded .card-content {
+    max-height: 1000px;
+  }
+
+  .dashboard-card:not(.expanded) .card-info:nth-child(n + 3) {
+    display: none;
+  }
 }

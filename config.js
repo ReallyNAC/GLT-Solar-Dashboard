@@ -1,11 +1,11 @@
-const { URL } = require('url');
-require('dotenv').config();
+const { URL } = require("url");
+require("dotenv").config();
 
 const mqttUrl = new URL(process.env.MQTT_URL);
 
 module.exports = {
   mqttUrl: {
-    protocol: mqttUrl.protocol.replace(':', ''),
+    protocol: mqttUrl.protocol.replace(":", ""),
     host: mqttUrl.hostname,
     port: parseInt(mqttUrl.port),
   },
